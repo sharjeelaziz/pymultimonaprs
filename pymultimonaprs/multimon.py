@@ -31,7 +31,12 @@ class Multimon:
 			if self.config['source'] == 'rtl':
 				proc_src = subprocess.Popen(
 					['rtl_fm', '-f', str(int(self.config['rtl']['freq'] * 1e6)), '-s', '22050',
+<<<<<<< HEAD
 					'-p', str(self.config['rtl']['ppm']), '-g', str(self.config['rtl']['gain']),
+=======
+					'-p%s' % str(self.config['rtl']['ppm']), '-g', str(self.config['rtl']['gain']),
+					'-E', 'offset' if self.config['rtl'].get('offset_tuning', False) else 'none',
+>>>>>>> asdil12/master
 					'-d', str(self.config['rtl'].get('device_index', 0)), '-'],
 					stdout=subprocess.PIPE, stderr=open('/dev/null')
 				)
